@@ -27,8 +27,22 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+#  ! Allow cors access to all
+ALLOWED_HOSTS=['*']
+CORS_ORIGIN_ALLOW_ALL = True
 
+# ! Restrict cors access
+# ALLOWED_HOSTS=['*']
+# ALLOWED_HOSTS=['http://localhost:5000']
+
+# CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_ALLOW_ALL = False
+
+# CORS_ORIGIN_WHITELIST = (
+
+    #    'http://localhost:3000',
+
+# )
 
 # Application definition
 
@@ -43,6 +57,7 @@ INSTALLED_APPS = [
     'meal_manager_app',
     # 'frontend',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -53,7 +68,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+
 
 ROOT_URLCONF = 'meal_manager_project.urls'
 
