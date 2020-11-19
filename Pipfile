@@ -9,8 +9,8 @@ verify_ssl = true
 django = "*"
 djangorestframework = "*"
 psycopg2 = "*"
-python-decouple = "*"
 django-cors-headers = "*"
+python-decouple = "*"
 
 [requires]
 python_version = "3.8"
